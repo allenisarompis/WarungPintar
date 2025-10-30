@@ -17,7 +17,6 @@ namespace WarungPintar
         private MySqlConnection koneksi;
         private MySqlDataAdapter adapter;
         private MySqlCommand perintah;
-
         private DataSet ds = new DataSet();
         private string alamat, query;
         public Form1()
@@ -30,47 +29,29 @@ namespace WarungPintar
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            FrmMain f = new FrmMain();
-            this.Hide();           // sembunyikan form login
-            f.ShowDialog();
-            try
-            {
-                query = string.Format("select * from tbl_pengguna where username = '{0}'", txtUsername.Text);
-                ds.Clear();
-                koneksi.Open();
-                perintah = new MySqlCommand(query, koneksi);
-                adapter = new MySqlDataAdapter(perintah);
-                perintah.ExecuteNonQuery();
-                adapter.Fill(ds);
-                koneksi.Close();
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    foreach (DataRow kolom in ds.Tables[0].Rows)
-                    {
-                        string sandi;
-                        sandi = kolom["password"].ToString();
-                        if (sandi == txtPassword.Text)
-                        {
-                            FrmMain frmMain = new FrmMain();
-                            frmMain.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Anda salah input password");
-                        }
-                    }
+            string uname = txtUsername.Text;
+            string pass = txtPassword.Text;
 
-                }
-                else
-                {
-                    MessageBox.Show("Username tidak ditemukan");
-                }
-            }
-            catch (Exception ex)
+            string role = ""; // variable untuk menyimpan role user
+
+            if (uname == "admin" && pass == "admin")
             {
-                MessageBox.Show(ex.ToString());
+                role = "admin";
+            }
+            else if (uname == "kasir" && pass == "kasir")
+            {
+                role = "kasir";
+            }
+            else
+            {
+                MessageBox.Show("Username atau Password salah!");
+                return;
             }
 
+            FrmMenu menu = new FrmMenu(role);
+            menu.Show();
+            this.Hide(); // sembunyikan login form
         }
+
     }
 }

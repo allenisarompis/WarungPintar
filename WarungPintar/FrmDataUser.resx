@@ -117,23 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="txtAbout.Text" xml:space="preserve">
-    <value>Warung Pintar percaya bahwa setiap pemilik warung memiliki potensi besar untuk tumbuh,
-asalkan diberi kesempatan dan alat yang tepat. 
-Karena itu, kami terus mengembangkan inovasi yang dapat membantu 
-pemilik warung mengelola bisnisnya dengan lebih mudah, cepat, dan transparan.
-
-Kami memahami bahwa menjalankan warung bukan hal yang sederhana. 
-Melalui sistem Warung Pintar, semua proses tersebut bisa dilakukan dalam satu platform terpadu yang praktis dan efisien.
-
-Lebih dari sekadar aplikasi, Warung Pintar hadir sebagai teman dan pendamping usaha. 
-Kami ingin menjadi bagian dari perjalanan setiap warung menuju kesuksesan 
-dari warung tradisional yang sederhana, menjadi warung digital yang cerdas dan siap bersaing di era modern.
-
-Dengan dukungan teknologi dan semangat gotong royong, 
-kami yakin bahwa masa depan ekonomi Indonesia dimulai dari warung-warung kecil yang terus tumbuh,
-berinovasi, dan memberi dampak besar bagi masyarakat sekitar.</value>
-  </data>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="fontDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>233, 17</value>
+  </metadata>
+  <metadata name="fontDialog2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>395, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

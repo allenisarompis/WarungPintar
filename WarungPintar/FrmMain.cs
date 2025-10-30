@@ -69,9 +69,9 @@ namespace WarungPintar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.Show();
-            this.Hide();
+            FrmMenu f = new FrmMenu();
+            this.Hide();           // sembunyikan form login
+            f.ShowDialog();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -229,7 +229,6 @@ namespace WarungPintar
             FrmAboutUs f = new FrmAboutUs();
             this.Hide(); // sembunyikan form utama (opsional)
             f.ShowDialog();
-
         }
     }
 }

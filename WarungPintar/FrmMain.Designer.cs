@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.btnAbout = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -52,26 +51,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnLogout
+            // btnMenu
             // 
-            this.btnLogout.Location = new System.Drawing.Point(672, 22);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(100, 39);
-            this.btnLogout.TabIndex = 1;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnAbout
-            // 
-            this.btnAbout.Location = new System.Drawing.Point(528, 22);
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnAbout.Size = new System.Drawing.Size(100, 39);
-            this.btnAbout.TabIndex = 2;
-            this.btnAbout.Text = "About Us";
-            this.btnAbout.UseVisualStyleBackColor = true;
-            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            this.btnMenu.Location = new System.Drawing.Point(672, 22);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(100, 39);
+            this.btnMenu.TabIndex = 1;
+            this.btnMenu.Text = "Menu";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -249,8 +237,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnAbout);
-            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.btnMenu);
             this.Name = "FrmMain";
             this.Text = "FrmMain";
             this.Load += new System.EventHandler(this.FrmMain_Load);
@@ -262,8 +249,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnAbout;
+        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAdd;

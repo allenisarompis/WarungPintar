@@ -20,7 +20,7 @@ namespace WarungPintar
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            FrmMain f = new FrmMain();
+            FrmMenu f = new FrmMenu();
             this.Hide();           // sembunyikan form login
             f.ShowDialog();
         }
@@ -28,6 +28,11 @@ namespace WarungPintar
         private void txtAbout_TextChanged(object sender, EventArgs e)
         {
             txtAbout.ReadOnly = true;
+        }
+
+        private void FrmAboutUs_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
