@@ -83,7 +83,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(672, 115);
+            this.btnAdd.Location = new System.Drawing.Point(528, 115);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnAdd.Size = new System.Drawing.Size(100, 39);
@@ -139,7 +139,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(528, 193);
+            this.btnSearch.Location = new System.Drawing.Point(672, 115);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnSearch.Size = new System.Drawing.Size(100, 39);
@@ -155,7 +155,7 @@
             this.btnDelete.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnDelete.Size = new System.Drawing.Size(100, 39);
             this.btnDelete.TabIndex = 12;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "Status";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -196,7 +196,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(528, 115);
+            this.btnUpdate.Location = new System.Drawing.Point(528, 193);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnUpdate.Size = new System.Drawing.Size(100, 39);

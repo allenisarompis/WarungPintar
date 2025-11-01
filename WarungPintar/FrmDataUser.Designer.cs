@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDataUser));
             this.label1 = new System.Windows.Forms.Label();
-            this.btnMenu = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.fontDialog2 = new System.Windows.Forms.FontDialog();
             this.btnSave = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -58,16 +58,6 @@
             this.label1.Size = new System.Drawing.Size(170, 37);
             this.label1.TabIndex = 6;
             this.label1.Text = "Data User";
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.Location = new System.Drawing.Point(661, 23);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(100, 39);
-            this.btnMenu.TabIndex = 5;
-            this.btnMenu.Text = "Menu";
-            this.btnMenu.UseVisualStyleBackColor = true;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // label2
             // 
@@ -162,11 +152,22 @@
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(658, 23);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 39);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Menu";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmDataUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.LblFoto);
@@ -178,7 +179,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnMenu);
             this.Name = "FrmDataUser";
             this.Text = "FrmDataUser";
             this.Load += new System.EventHandler(this.FrmDataUser_Load);
@@ -191,7 +191,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -205,5 +204,6 @@
         private System.Windows.Forms.FontDialog fontDialog2;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

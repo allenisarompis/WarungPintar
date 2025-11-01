@@ -63,6 +63,13 @@ namespace WarungPintar
 
     }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmMenu f = new FrmMenu();
+            this.Hide();           // sembunyikan form login
+            f.ShowDialog();
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
