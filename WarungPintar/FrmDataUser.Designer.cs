@@ -38,14 +38,15 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.picFoto = new System.Windows.Forms.PictureBox();
             this.LblFoto = new System.Windows.Forms.Label();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.fontDialog2 = new System.Windows.Forms.FontDialog();
             this.btnSave = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.btnClear = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,6 +97,7 @@
             // 
             this.txtID.Location = new System.Drawing.Point(513, 136);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(58, 26);
             this.txtID.TabIndex = 12;
             // 
@@ -103,24 +105,25 @@
             // 
             this.txtUsername.Location = new System.Drawing.Point(513, 175);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(132, 26);
+            this.txtUsername.ReadOnly = true;
+            this.txtUsername.Size = new System.Drawing.Size(155, 26);
             this.txtUsername.TabIndex = 13;
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(513, 219);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(132, 26);
+            this.txtPassword.Size = new System.Drawing.Size(155, 26);
             this.txtPassword.TabIndex = 14;
             // 
-            // pictureBox2
+            // picFoto
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(123, 126);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(170, 206);
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.picFoto.Location = new System.Drawing.Point(123, 126);
+            this.picFoto.Name = "picFoto";
+            this.picFoto.Size = new System.Drawing.Size(170, 206);
+            this.picFoto.TabIndex = 15;
+            this.picFoto.TabStop = false;
+            this.picFoto.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // LblFoto
             // 
@@ -134,7 +137,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(381, 331);
+            this.btnSave.Location = new System.Drawing.Point(381, 303);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(107, 43);
             this.btnSave.TabIndex = 17;
@@ -162,16 +165,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(561, 303);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(107, 43);
+            this.btnClear.TabIndex = 20;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // FrmDataUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.LblFoto);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.picFoto);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtID);
@@ -182,7 +196,7 @@
             this.Name = "FrmDataUser";
             this.Text = "FrmDataUser";
             this.Load += new System.EventHandler(this.FrmDataUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -198,12 +212,13 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox picFoto;
         private System.Windows.Forms.Label LblFoto;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.FontDialog fontDialog2;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClear;
     }
 }

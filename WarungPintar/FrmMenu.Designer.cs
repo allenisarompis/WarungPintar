@@ -88,6 +88,7 @@
             this.btnTR.TabIndex = 7;
             this.btnTR.Text = "Transaksi";
             this.btnTR.UseVisualStyleBackColor = true;
+            this.btnTR.Click += new System.EventHandler(this.btnTR_Click);
             // 
             // btnLK
             // 
@@ -97,6 +98,7 @@
             this.btnLK.TabIndex = 8;
             this.btnLK.Text = "Laporan Keuangan";
             this.btnLK.UseVisualStyleBackColor = true;
+            this.btnLK.Click += new System.EventHandler(this.btnLK_Click);
             // 
             // btnAbout
             // 

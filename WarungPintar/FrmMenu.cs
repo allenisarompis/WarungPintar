@@ -56,7 +56,18 @@ namespace WarungPintar
 
         private void btnData_Click(object sender, EventArgs e)
         {
-            FrmDataUser f = new FrmDataUser();
+            FrmDataUser frm = new FrmDataUser();
+            frm.Show();
+        }
+
+        private void btnLK_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnTR_Click(object sender, EventArgs e)
+        {
+            FrmTransaksi f = new FrmTransaksi();
             this.Hide(); // sembunyikan form utama (opsional)
             f.ShowDialog();
         }

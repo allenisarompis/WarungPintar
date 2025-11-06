@@ -27,31 +27,49 @@ namespace WarungPintar
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string uname = txtUsername.Text;
-            string pass = txtPassword.Text;
+            string uname = txtUsername.Text.Trim();
+            string pass = txtPassword.Text.Trim();
 
-            string role = ""; // variable untuk menyimpan role user
+            string id = "";
+            string role = "";
 
+            // Login manual admin dan kasir
             if (uname == "admin" && pass == "admin")
             {
+                id = "1";
                 role = "admin";
             }
             else if (uname == "kasir" && pass == "kasir")
             {
+                id = "2";
                 role = "kasir";
             }
             else
             {
-                MessageBox.Show("Username atau Password salah!");
+                MessageBox.Show("Username atau Password salah!", "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            // Simpan data login ke Session global
+            Session.IDPengguna = id;
+            Session.Username = uname;
+            Session.Role = role;
+
+            //MessageBox.Show($"Selamat datang, {uname}!", "Login Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Buka form menu 
             FrmMenu menu = new FrmMenu(role);
             menu.Show();
-            this.Hide(); // sembunyikan login form
+            this.Hide();
         }
 
     }
+
 }
