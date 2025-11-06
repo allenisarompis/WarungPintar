@@ -24,22 +24,14 @@ namespace WarungPintar
         private string connectionString = "server=localhost;database=db_warung;username=root;password=;";
 
         private string connStr = "server=localhost; database=db_warung; username=root; password=;";
-        private string fotoPathAsli = ""; // untuk menyimpan foto dari DB
-        private string fotoPathBaru = ""; // untuk foto baru yang dipilih
-
-
+        private string fotoPathAsli = ""; // foto dari database
+        private string fotoPathBaru = ""; // foto baru yang dipilih
+        private bool fotoDihapus = false; // status foto dihapus
         public FrmDataUser()
         {
             InitializeComponent();
 
             this.StartPosition = FormStartPosition.CenterScreen;
-        }
-
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            FrmMenu f = new FrmMenu();
-            this.Hide();           // sembunyikan form login
-            f.ShowDialog();
         }
 
         private void FrmDataUser_Load(object sender, EventArgs e)
@@ -51,6 +43,7 @@ namespace WarungPintar
             LoadDataPengguna();
 
         }
+
         private void LoadDataPengguna()
         {
             try
@@ -86,13 +79,15 @@ namespace WarungPintar
                         }
                     }
                 }
+
+                fotoPathBaru = "";
+                fotoDihapus = false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Terjadi kesalahan saat memuat data pengguna: " + ex.Message);
             }
         }
-
         private void LblFoto_Click(object sender, EventArgs e)
         {
 
@@ -106,6 +101,8 @@ namespace WarungPintar
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 fotoPathBaru = openFileDialog1.FileName;
+                fotoDihapus = false;
+
                 picFoto.Image = Image.FromFile(fotoPathBaru);
                 picFoto.SizeMode = PictureBoxSizeMode.StretchImage;
                 LblFoto.Visible = false;
@@ -123,11 +120,12 @@ namespace WarungPintar
         {
             txtPassword.Clear();
             fotoPathBaru = "";
+            fotoDihapus = false;
             LoadDataPengguna();
             MessageBox.Show("Perubahan dibatalkan dan data telah direfresh.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             string passwordBaru = txtPassword.Text.Trim();
 
@@ -139,8 +137,13 @@ namespace WarungPintar
 
             string pathSimpanFoto = fotoPathAsli;
 
-            // Jika user memilih foto baru, salin ke folder project
-            if (!string.IsNullOrEmpty(fotoPathBaru))
+            // Jika foto dihapus
+            if (fotoDihapus)
+            {
+                pathSimpanFoto = "";
+            }
+            // Jika user pilih foto baru
+            else if (!string.IsNullOrEmpty(fotoPathBaru))
             {
                 string folderTujuan = Path.Combine(Application.StartupPath, "FotoPengguna");
                 if (!Directory.Exists(folderTujuan))
@@ -170,6 +173,7 @@ namespace WarungPintar
                 MessageBox.Show("✅ Perubahan berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtPassword.Clear();
                 fotoPathBaru = "";
+                fotoDihapus = false;
                 LoadDataPengguna();
             }
             catch (Exception ex)
@@ -178,5 +182,48 @@ namespace WarungPintar
             }
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(fotoPathAsli) && picFoto.Image == null)
+            {
+                MessageBox.Show("Tidak ada foto yang bisa dihapus.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var conf = MessageBox.Show("Yakin ingin menghapus foto ini?", "Konfirmasi Hapus Foto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf != DialogResult.Yes) return;
+
+            try
+            {
+                if (!string.IsNullOrEmpty(fotoPathAsli))
+                {
+                    try
+                    {
+                        if (File.Exists(fotoPathAsli))
+                        {
+                            File.Delete(fotoPathAsli);
+                        }
+                    }
+                    catch (Exception fsEx)
+                    {
+                        MessageBox.Show("Gagal menghapus file foto dari disk: " + fsEx.Message, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+
+                picFoto.Image = null;
+                LblFoto.Visible = true;
+
+                // tandai sebagai dihapus (akan dikosongkan di DB saat Save)
+                fotoDihapus = true;
+                fotoPathBaru = "";
+                fotoPathAsli = "";
+
+                MessageBox.Show("Foto berhasil dihapus secara lokal. Klik tombol SAVE untuk menyimpan perubahan ke database.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan saat menghapus foto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

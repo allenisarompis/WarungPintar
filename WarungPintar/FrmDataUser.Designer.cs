@@ -42,10 +42,11 @@
             this.LblFoto = new System.Windows.Forms.Label();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.fontDialog2 = new System.Windows.Forms.FontDialog();
-            this.btnSave = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(377, 142);
+            this.label2.Location = new System.Drawing.Point(354, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 20);
             this.label2.TabIndex = 8;
@@ -72,7 +73,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(377, 181);
+            this.label3.Location = new System.Drawing.Point(354, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 20);
             this.label3.TabIndex = 9;
@@ -81,7 +82,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(377, 225);
+            this.label4.Location = new System.Drawing.Point(354, 202);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 20);
             this.label4.TabIndex = 10;
@@ -95,7 +96,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(513, 136);
+            this.txtID.Location = new System.Drawing.Point(490, 113);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(58, 26);
@@ -103,7 +104,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(513, 175);
+            this.txtUsername.Location = new System.Drawing.Point(490, 152);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.ReadOnly = true;
             this.txtUsername.Size = new System.Drawing.Size(155, 26);
@@ -111,14 +112,14 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(513, 219);
+            this.txtPassword.Location = new System.Drawing.Point(490, 196);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(155, 26);
             this.txtPassword.TabIndex = 14;
             // 
             // picFoto
             // 
-            this.picFoto.Location = new System.Drawing.Point(123, 126);
+            this.picFoto.Location = new System.Drawing.Point(115, 106);
             this.picFoto.Name = "picFoto";
             this.picFoto.Size = new System.Drawing.Size(170, 206);
             this.picFoto.TabIndex = 15;
@@ -128,22 +129,12 @@
             // LblFoto
             // 
             this.LblFoto.AutoSize = true;
-            this.LblFoto.Location = new System.Drawing.Point(173, 219);
+            this.LblFoto.Location = new System.Drawing.Point(165, 199);
             this.LblFoto.Name = "LblFoto";
             this.LblFoto.Size = new System.Drawing.Size(74, 20);
             this.LblFoto.TabIndex = 16;
             this.LblFoto.Text = "Pilih Foto";
             this.LblFoto.Click += new System.EventHandler(this.LblFoto_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(381, 303);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(107, 43);
-            this.btnSave.TabIndex = 17;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pictureBox1
             // 
@@ -167,23 +158,44 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(561, 303);
+            this.btnClear.Location = new System.Drawing.Point(538, 269);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(107, 43);
             this.btnClear.TabIndex = 20;
-            this.btnClear.Text = "Clear";
+            this.btnClear.Text = "Refresh";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(145, 344);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(107, 43);
+            this.btnDelete.TabIndex = 21;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(358, 269);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(107, 43);
+            this.btnUpdate.TabIndex = 22;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // FrmDataUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.LblFoto);
             this.Controls.Add(this.picFoto);
             this.Controls.Add(this.txtPassword);
@@ -216,9 +228,10 @@
         private System.Windows.Forms.Label LblFoto;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.FontDialog fontDialog2;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
