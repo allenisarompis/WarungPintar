@@ -22,6 +22,11 @@ namespace WarungPintar
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            // Reset Session
+            Session.IDPengguna = null;
+            Session.Username = null;
+            Session.Role = null;
+
             Form1 form1 = new Form1();
             form1.Show();
             this.Hide();
@@ -30,14 +35,14 @@ namespace WarungPintar
         private void btnAbout_Click(object sender, EventArgs e)
         {
             FrmAboutUs f = new FrmAboutUs();
-            this.Hide(); // sembunyikan form utama (opsional)
+            this.Hide(); 
             f.ShowDialog();
         }
 
         private void btnMB_Click(object sender, EventArgs e)
         {
             FrmMain f = new FrmMain();
-            this.Hide(); // sembunyikan form utama (opsional)
+            this.Hide(); 
             f.ShowDialog();
         }
 
@@ -47,10 +52,17 @@ namespace WarungPintar
         }
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            if (userRole == "kasir")
+            if (Session.Role == "kasir")
             {
-                // kasir tidak bisa akses Laporan Keuangan
+                // Kasir tidak bisa akses laporan keuangan
                 btnLK.Enabled = false;
+                btnLK.Visible = true;
+            }
+            else if (Session.Role == "admin")
+            {
+                // Admin tidak bisa akses transaksi
+                btnTR.Enabled = false;
+                btnTR.Visible = true;
             }
         }
 
@@ -62,13 +74,29 @@ namespace WarungPintar
 
         private void btnLK_Click(object sender, EventArgs e)
         {
-            
+            // kasir tak bisa akses laporan keuangan
+            if (Session.Role == "kasir")
+            {
+                MessageBox.Show("Kasir tidak bisa akses ke menu Laporan Keuangan!",
+                    "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            FrmLaporan f = new FrmLaporan();
+            this.Hide();
+            f.ShowDialog();
         }
 
         private void btnTR_Click(object sender, EventArgs e)
         {
+            // admin tak bisa akses transaksi
+            if (Session.Role == "admin")
+            {
+                MessageBox.Show("Admin tidak bisa akses menu transaksi",
+                    "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             FrmTransaksi f = new FrmTransaksi();
-            this.Hide(); // sembunyikan form utama (opsional)
+            this.Hide(); 
             f.ShowDialog();
         }
     }

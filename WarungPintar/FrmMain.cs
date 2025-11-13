@@ -47,15 +47,15 @@ namespace WarungPintar
                 dataGridView1.Columns[4].HeaderText = "Stok";
                 dataGridView1.Columns[5].HeaderText = "Status";
 
-                // Isi ComboBox kategori
+                // ComboBox kategori
                 CBKategori.Items.Clear();
                 CBKategori.Items.AddRange(new string[] { "Makanan", "Minuman", "Cemilan"});
 
-                // Isi ComboBox status
+                // ComboBox status
                 CBStatus.Items.Clear();
                 CBStatus.Items.AddRange(new string[] { "Tersedia", "Tak Tersedia" });
 
-                // Kosongkan input
+
                 txtKode.Clear();
                 txtProduk.Clear();
                 txtHarga.Clear();
@@ -179,13 +179,13 @@ namespace WarungPintar
                     CBKategori.SelectedIndex == -1 ||
                     CBStatus.SelectedIndex == -1)
                 {
-                    MessageBox.Show("⚠️ Mohon isi semua data terlebih dahulu!");
+                    MessageBox.Show("Isi semua data dulu!");
                     return;
                 }
 
-                // konfirmasi sebelum update
+                // konfirmasi update
                 DialogResult konfirmasi = MessageBox.Show(
-                    "Apakah Anda yakin ingin memperbarui data ini?",
+                    "Yakin ingin memperbarui data ini?",
                     "Konfirmasi Update",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
@@ -231,7 +231,7 @@ namespace WarungPintar
                 koneksi.Close();
             }
 
-            // button
+
             btnAdd.Enabled = true;
             btnUpdate.Enabled = true;
             btnClear.Enabled = true;
@@ -248,10 +248,10 @@ namespace WarungPintar
                 CBKategori.SelectedIndex = -1;
                 CBStatus.SelectedIndex = -1;
 
-                // Kembalikan fokus ke kode barang
+
                 txtKode.Focus();
 
-                // Refresh DataGridView dengan data terbaru
+
                 ds.Clear();
                 query = "SELECT * FROM tbl_barang";
                 koneksi.Open();
@@ -268,7 +268,7 @@ namespace WarungPintar
                 dataGridView1.Columns[4].HeaderText = "Stok";
                 dataGridView1.Columns[5].HeaderText = "Status";
 
-                // Aktifkan/Nonaktifkan tombol
+
                 btnAdd.Enabled = true;
                 btnUpdate.Enabled = false;
                 btnClear.Enabled = false;
@@ -314,12 +314,12 @@ namespace WarungPintar
 
                     if (res == 1)
                     {
-                        MessageBox.Show("Data berhasil ditambahkan!");
-                        FrmMain_Load(null, null); // refresh dataGrid dan input
+                        MessageBox.Show("Data ditambahkan!");
+                        FrmMain_Load(null, null);
                     }
                     else
                     {
-                        MessageBox.Show("Gagal menambahkan data!");
+                        MessageBox.Show("Gagal menambah data!");
                     }
                 }
                 else
@@ -333,7 +333,7 @@ namespace WarungPintar
                 koneksi.Close();
             }
 
-            // button
+
             btnAdd.Enabled = true;
             btnUpdate.Enabled = true;
             btnClear.Enabled = true;
@@ -355,21 +355,21 @@ namespace WarungPintar
                 ds.Clear();
                 koneksi.Open();
 
-                // Hanya isi kode → cari berdasarkan kode
+                // Isi kode 
                 if (!string.IsNullOrEmpty(kode) && string.IsNullOrEmpty(nama))
                 {
                     query = "SELECT * FROM tbl_barang WHERE kode = @kode";
                     perintah = new MySqlCommand(query, koneksi);
                     perintah.Parameters.AddWithValue("@kode", kode);
                 }
-                // hanya isi nama → cari berdasarkan penggalan nama
+                // isi nama, cari dari penggalan nama
                 else if (string.IsNullOrEmpty(kode) && !string.IsNullOrEmpty(nama))
                 {
                     query = "SELECT * FROM tbl_barang WHERE nama_produk LIKE @nama";
                     perintah = new MySqlCommand(query, koneksi);
                     perintah.Parameters.AddWithValue("@nama", "%" + nama + "%");
                 }
-                // isi dua-duanya → cari berdasarkan dua-duanya
+                // isi dua-duanya, cari berdasarkan dua-duanya
                 else
                 {
                     query = "SELECT * FROM tbl_barang WHERE kode = @kode OR nama_produk LIKE @nama";
@@ -409,7 +409,7 @@ namespace WarungPintar
                 else
                 {
                     MessageBox.Show("Data tidak ditemukan!");
-                    FrmMain_Load(null, null); // refresh tampilan
+                    FrmMain_Load(null, null);
                 }
 
                 btnAdd.Enabled = true;

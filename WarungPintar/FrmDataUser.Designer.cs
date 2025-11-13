@@ -60,11 +60,12 @@
             this.label1.Size = new System.Drawing.Size(170, 37);
             this.label1.TabIndex = 6;
             this.label1.Text = "Data User";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(354, 119);
+            this.label2.Location = new System.Drawing.Point(347, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 20);
             this.label2.TabIndex = 8;
@@ -73,7 +74,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(354, 158);
+            this.label3.Location = new System.Drawing.Point(347, 156);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 20);
             this.label3.TabIndex = 9;
@@ -82,7 +83,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(354, 202);
+            this.label4.Location = new System.Drawing.Point(347, 200);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 20);
             this.label4.TabIndex = 10;
@@ -96,7 +97,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(490, 113);
+            this.txtID.Location = new System.Drawing.Point(483, 111);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(58, 26);
@@ -104,7 +105,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(490, 152);
+            this.txtUsername.Location = new System.Drawing.Point(483, 150);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.ReadOnly = true;
             this.txtUsername.Size = new System.Drawing.Size(155, 26);
@@ -112,16 +113,16 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(490, 196);
+            this.txtPassword.Location = new System.Drawing.Point(483, 194);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(155, 26);
             this.txtPassword.TabIndex = 14;
             // 
             // picFoto
             // 
-            this.picFoto.Location = new System.Drawing.Point(115, 106);
+            this.picFoto.Location = new System.Drawing.Point(115, 99);
             this.picFoto.Name = "picFoto";
-            this.picFoto.Size = new System.Drawing.Size(170, 206);
+            this.picFoto.Size = new System.Drawing.Size(146, 169);
             this.picFoto.TabIndex = 15;
             this.picFoto.TabStop = false;
             this.picFoto.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -129,7 +130,7 @@
             // LblFoto
             // 
             this.LblFoto.AutoSize = true;
-            this.LblFoto.Location = new System.Drawing.Point(165, 199);
+            this.LblFoto.Location = new System.Drawing.Point(156, 173);
             this.LblFoto.Name = "LblFoto";
             this.LblFoto.Size = new System.Drawing.Size(74, 20);
             this.LblFoto.TabIndex = 16;
@@ -145,6 +146,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // button1
             // 
@@ -158,7 +160,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(538, 269);
+            this.btnClear.Location = new System.Drawing.Point(531, 267);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(107, 43);
             this.btnClear.TabIndex = 20;
@@ -168,7 +170,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(145, 344);
+            this.btnDelete.Location = new System.Drawing.Point(135, 305);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(107, 43);
             this.btnDelete.TabIndex = 21;
@@ -178,7 +180,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(358, 269);
+            this.btnUpdate.Location = new System.Drawing.Point(351, 267);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(107, 43);
             this.btnUpdate.TabIndex = 22;

@@ -21,7 +21,7 @@ namespace WarungPintar
         private void btnBack_Click(object sender, EventArgs e)
         {
             FrmMenu f = new FrmMenu();
-            this.Hide();           // sembunyikan form login
+            this.Hide();
             f.ShowDialog();
         }
 
@@ -38,7 +38,7 @@ namespace WarungPintar
         private void button1_Click(object sender, EventArgs e)
         {
             FrmMenu f = new FrmMenu();
-            this.Hide();           // sembunyikan form login
+            this.Hide();
             f.ShowDialog();
         }
     }

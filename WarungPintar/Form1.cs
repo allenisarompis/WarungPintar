@@ -34,40 +34,60 @@ namespace WarungPintar
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string uname = txtUsername.Text.Trim();
-            string pass = txtPassword.Text.Trim();
-
-            string id = "";
-            string role = "";
-
-            // Login manual admin dan kasir
-            if (uname == "admin" && pass == "admin")
+            if (txtUsername.Text == "" || txtPassword.Text == "")
             {
-                id = "1";
-                role = "admin";
-            }
-            else if (uname == "kasir" && pass == "kasir")
-            {
-                id = "2";
-                role = "kasir";
-            }
-            else
-            {
-                MessageBox.Show("Username atau Password salah!", "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("⚠️Harap isi username dan password!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Simpan data login ke Session global
-            Session.IDPengguna = id;
-            Session.Username = uname;
-            Session.Role = role;
+            try
+            {
+                query = $"SELECT * FROM tbl_pengguna WHERE username = '{txtUsername.Text.Trim()}'";
+                ds.Clear();
+                koneksi.Open();
+                perintah = new MySqlCommand(query, koneksi);
+                adapter = new MySqlDataAdapter(perintah);
+                adapter.Fill(ds);
+                koneksi.Close();
 
-            //MessageBox.Show($"Selamat datang, {uname}!", "Login Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    DataRow kolom = ds.Tables[0].Rows[0];
+                    string passwordDB = kolom["password"].ToString();
 
-            // Buka form menu 
-            FrmMenu menu = new FrmMenu(role);
-            menu.Show();
-            this.Hide();
+                    if (passwordDB == txtPassword.Text.Trim())
+                    {
+                        // Simpan di Session
+                        Session.IDPengguna = kolom["id_pengguna"].ToString();
+                        Session.Username = kolom["username"].ToString();
+
+                        if (Session.Username.ToLower() == "admin")
+                            Session.Role = "admin";
+                        else if (Session.Username.ToLower() == "kasir")
+                            Session.Role = "kasir";
+                        else
+                            Session.Role = "user";
+
+                        // buka menu
+                        FrmMenu menu = new FrmMenu();
+                        menu.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Password salah!", "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Username tidak ditemukan!", "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                koneksi.Close();
+            }
         }
 
     }

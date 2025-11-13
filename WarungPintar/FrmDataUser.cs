@@ -25,7 +25,7 @@ namespace WarungPintar
 
         private string connStr = "server=localhost; database=db_warung; username=root; password=;";
         private string fotoPathAsli = ""; // foto dari database
-        private string fotoPathBaru = ""; // foto baru yang dipilih
+        private string fotoPathBaru = ""; // foto baru
         private bool fotoDihapus = false; // status foto dihapus
         public FrmDataUser()
         {
@@ -114,15 +114,14 @@ namespace WarungPintar
             FrmMenu f = new FrmMenu();
             this.Hide();        
             f.ShowDialog();
-        } // menu button
-
+        } // menu 
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtPassword.Clear();
             fotoPathBaru = "";
             fotoDihapus = false;
             LoadDataPengguna();
-            MessageBox.Show("Perubahan dibatalkan dan data telah direfresh.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Perubahan dibatalkan dan data direfresh.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -137,12 +136,12 @@ namespace WarungPintar
 
             string pathSimpanFoto = fotoPathAsli;
 
-            // Jika foto dihapus
+            // foto dihapus
             if (fotoDihapus)
             {
                 pathSimpanFoto = "";
             }
-            // Jika user pilih foto baru
+            // user pilih foto baru
             else if (!string.IsNullOrEmpty(fotoPathBaru))
             {
                 string folderTujuan = Path.Combine(Application.StartupPath, "FotoPengguna");
@@ -170,7 +169,7 @@ namespace WarungPintar
                     }
                 }
 
-                MessageBox.Show("✅ Perubahan berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Perubahan disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtPassword.Clear();
                 fotoPathBaru = "";
                 fotoDihapus = false;
@@ -178,7 +177,7 @@ namespace WarungPintar
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan saat menyimpan perubahan: " + ex.Message);
+                MessageBox.Show("Ada kesalahan saat menyimpan perubahan: " + ex.Message);
             }
         }
 
@@ -186,11 +185,11 @@ namespace WarungPintar
         {
             if (string.IsNullOrEmpty(fotoPathAsli) && picFoto.Image == null)
             {
-                MessageBox.Show("Tidak ada foto yang bisa dihapus.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tidak ada untuk dihapus.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            var conf = MessageBox.Show("Yakin ingin menghapus foto ini?", "Konfirmasi Hapus Foto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var conf = MessageBox.Show("Yakin ingin hapus foto?", "Konfirmasi Hapus Foto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (conf != DialogResult.Yes) return;
 
             try
@@ -213,17 +212,27 @@ namespace WarungPintar
                 picFoto.Image = null;
                 LblFoto.Visible = true;
 
-                // tandai sebagai dihapus (akan dikosongkan di DB saat Save)
+                // tandai dihapus (dikosongkan di DB saat Save)
                 fotoDihapus = true;
                 fotoPathBaru = "";
                 fotoPathAsli = "";
 
-                MessageBox.Show("Foto berhasil dihapus secara lokal. Klik tombol SAVE untuk menyimpan perubahan ke database.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Foto berhasil dihapus secara lokal. Klik SAVE untuk simpan perubahan ke database.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan saat menghapus foto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ada kesalahan saat menghapus foto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
